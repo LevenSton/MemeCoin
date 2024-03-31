@@ -76,7 +76,7 @@ contract TomoMemeCoin is ERC20 {
             mintAmount_ = preSaleAmountLeft;
         }
 
-        uint256 price = mintPrice * mintAmount_;
+        uint256 price = (mintPrice * mintAmount_) / 10 ** decimals();
         if (mintAmount_ == 0 || msg.value < price) {
             revert InvaildParam();
         }
